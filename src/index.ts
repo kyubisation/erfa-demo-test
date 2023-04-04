@@ -20,6 +20,7 @@ const hostname = isDev ? '127.0.0.1' : '0.0.0.0';
 /*************************/
 
 const server = createServer((_req, res) => {
+  eval('console.log(1)');
   res.writeHead(200);
   res.end(`My first server! 1 + 2 = ${add(1, 2)}`);
 });
