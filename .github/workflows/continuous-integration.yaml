@@ -41,7 +41,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: dist
-        path: dist/
+        path: dist
 
   test:
     runs-on: ubuntu-latest
@@ -69,7 +69,8 @@ jobs:
     - name: Download server artifact
       uses: actions/download-artifact@v3
       with:
-        name: dist/
+        name: dist
+        path: dist
     
     - name: Login to GitHub Container Repository
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io --username ${{ github.actor }} --password-stdin
