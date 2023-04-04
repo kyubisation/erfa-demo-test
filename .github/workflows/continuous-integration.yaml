@@ -37,11 +37,11 @@ jobs:
     - name: Build server
       run: npm run build
     
-    - name: Upload server code
+    - name: Upload server artifact
       uses: actions/upload-artifact@v3
       with:
         name: dist
-        path: dist
+        path: dist/
 
   test:
     runs-on: ubuntu-latest
@@ -66,10 +66,10 @@ jobs:
       IMAGE_TAG: rev-${{ github.sha }}
     steps:
     - uses: actions/checkout@v3
-    - name: Download a single artifact
+    - name: Download server artifact
       uses: actions/download-artifact@v3
       with:
-        name: dist
+        name: dist/
     
     - name: Login to GitHub Container Repository
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io --username ${{ github.actor }} --password-stdin
