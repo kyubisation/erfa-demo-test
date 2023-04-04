@@ -6,7 +6,6 @@ concurrency:
   cancel-in-progress: true
 
 permissions: 
-  all: read
   packages: write
 
 jobs:
