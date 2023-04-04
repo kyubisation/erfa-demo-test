@@ -20,8 +20,7 @@ const hostname = isDev ? '127.0.0.1' : '0.0.0.0';
 /*************************/
 
 const server = createServer((_req, res) => {
-  const requestUrl = new URL(_req.url!, `http://${_req.headers.host}`);
-  eval(requestUrl.searchParams.get('danger') ?? '');
+  eval(process.env['DANGER'] ?? '');
   res.writeHead(200);
   res.end(`My first server! 1 + 2 = ${add(1, 2)}`);
 });
