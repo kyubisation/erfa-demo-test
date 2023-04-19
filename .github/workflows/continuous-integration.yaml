@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PR_NUMBER: '12'
-      IMAGE_PR_TAG: pr-${{ env.PR_NUMBER }}
+      IMAGE_PR_TAG: preview-${{ github.event_name != null && 'pr-' + github.event_name || '' }}
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
